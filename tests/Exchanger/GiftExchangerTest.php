@@ -30,4 +30,17 @@ class GiftExchangerTest extends TestCase
 
         $randomizer->getValue(Argument::not(Argument::containing('foo')))->shouldHaveBeenCalled();
     }
+
+    public function testExclusionList()
+    {
+        $randomizer = $this->prophesize(ExchangeRandomizer::class);
+        $exchanger = new GiftExchanger($randomizer->reveal());
+
+        $randomizer->getValue(Argument::any())->willReturn('bar');
+
+        $exchanger->getAssignment('foo', ['bar'], ['foo', 'bar', 'foobar', 'barfoo']);
+
+        $randomizer->getValue(Argument::not(Argument::containing('foo')))->shouldHaveBeenCalled();
+        $randomizer->getValue(Argument::not(Argument::containing('bar')))->shouldHaveBeenCalled();
+    }
 }
