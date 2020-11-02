@@ -13,6 +13,7 @@
         "symfony/yaml": "5.1.*"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16",
         "symfony/phpunit-bridge": "^5.1"
     },
     "config": {
