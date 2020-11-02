@@ -1,0 +1,7 @@
+participants:
+  - name: John
+    exclusions: Jane
+  - name: Jane
+    exclusions: Bob
+  - name: Bob
+  - name: Rick
