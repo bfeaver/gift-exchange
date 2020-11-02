@@ -1,3 +1,4 @@
+mailer_from: john@example.com
 participants:
   - name: John
     exclusions: Jane
