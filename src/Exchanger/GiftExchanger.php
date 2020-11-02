@@ -2,8 +2,17 @@
 
 namespace App\Exchanger;
 
+use App\Exchanger\Randomizer\ExchangeRandomizer;
+
 class GiftExchanger
 {
+    private ExchangeRandomizer $randomizer;
+
+    public function __construct(ExchangeRandomizer $randomizer)
+    {
+        $this->randomizer = $randomizer;
+    }
+
     public function getAssignment(string $name, array $excludeList, array $fullList): string
     {
         $excludeList += [$name];
@@ -12,8 +21,8 @@ class GiftExchanger
             return !in_array($v, $excludeList);
         });
 
-        $key = array_rand($fullList);
+        $fullList = array_values($fullList);
 
-        return $fullList[$key];
+        return $this->randomizer->getValue($fullList);
     }
 }
