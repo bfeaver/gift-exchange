@@ -1,8 +1,14 @@
 mailer_from: john@example.com
 participants:
   - name: John
-    exclusions: Jane
+    exclusions:
+      - Jane
+#    email: john@example.com
   - name: Jane
-    exclusions: Bob
+    exclusions:
+      - Bob
+#    email: jane@example.com
   - name: Bob
+#    email: bob@example.com
   - name: Rick
+#    email: rick@example.com
